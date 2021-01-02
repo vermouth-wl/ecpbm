@@ -1,6 +1,5 @@
 package com.ecpbm.dao.provider;
 
-import com.ecpbm.dao.UserInfoDao;
 import com.ecpbm.pojo.UserInfo;
 import org.apache.ibatis.jdbc.SQL;
 
