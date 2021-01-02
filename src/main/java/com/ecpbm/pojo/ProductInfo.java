@@ -1,6 +1,6 @@
 package com.ecpbm.pojo;
 
-import java.lang.reflect.Type;
+import com.ecpbm.pojo.Type;
 
 /**
  * @PACKAGE_NAME: com.ecpbm.pojo
