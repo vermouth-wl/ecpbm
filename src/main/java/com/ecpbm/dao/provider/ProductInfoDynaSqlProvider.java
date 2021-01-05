@@ -18,7 +18,7 @@ import java.util.Map;
  **/
 public class ProductInfoDynaSqlProvider {
 
-    // 分页动态查询
+    // 分页动态查询,Map<String, Object>类型的参数params用于封装查询条件
     public String selectWithParam(final Map<String, Object> params) {
         String sql = new SQL(){
             {
