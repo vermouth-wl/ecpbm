@@ -36,7 +36,7 @@ public interface ProductInfoDao {
             "com.ecpbm.dao.TypeDao.selectById", fetchType = FetchType.EAGER))
     })
     @SelectProvider(type = ProductInfoDynaSqlProvider.class, method = "selectWithParam")
-    List<ProductInfo> selectWithParam(Map<String, Object> params);
+    List<ProductInfo> selectByPage(Map<String, Object> params);
 
     // 根据条件查询商品总数
     @SelectProvider(type = ProductInfoDynaSqlProvider.class, method = "count")
