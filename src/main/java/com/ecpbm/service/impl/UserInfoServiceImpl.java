@@ -26,6 +26,8 @@ import java.util.Map;
  * @PROJECT_NAME: ecpbm
  **/
 @Service("userInfoService")
+// 使用@Transactional注解将类中所有方法都进行注解处理
+// Propagation.REQUIRED表示如果有事务就加入，无则新建事务
 @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.DEFAULT)
 public class UserInfoServiceImpl implements UserInfoService {
 
