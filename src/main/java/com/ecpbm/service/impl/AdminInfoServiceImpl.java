@@ -11,5 +11,5 @@ package com.ecpbm.service.impl;
  * @DAY_NAME_FULL: 星期日
  * @PROJECT_NAME: ecpbm
  **/
-public interface AdminInfoServiceImpl {
+public class AdminInfoServiceImpl {
 }

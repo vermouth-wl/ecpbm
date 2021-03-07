@@ -29,7 +29,7 @@ public interface UserInfoDao {
 
     // 根据客户id号获取客户对象
     @Select("select * from user_info t where t where t.id = #{id}")
-    public List<UserInfo> getUserInfoById(Integer id);
+    public UserInfo getUserInfoById(Integer id);
 
     // 分页获取客户信息
     @SelectProvider(type = UserInfoDynaSqlProvider.class, method = "selectWithParam")
