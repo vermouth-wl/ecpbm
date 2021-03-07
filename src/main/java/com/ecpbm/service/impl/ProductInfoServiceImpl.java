@@ -44,6 +44,7 @@ public class ProductInfoServiceImpl implements ProductInfoService {
         // 根据条件计算商品总数
         int recordCount = productInfoDao.count(params);
         // 给paper对象设置rowCount属性值（记录总数）
+        pager.setRowCount(recordCount);
         if (recordCount > 0) {
             // 将page对象放入params
             params.put("pager", pager);
