@@ -4,6 +4,7 @@ import com.ecpbm.pojo.AdminInfo;
 import com.ecpbm.pojo.Functions;
 import com.ecpbm.pojo.TreeNode;
 import com.ecpbm.service.AdminInfoService;
+import com.ecpbm.util.JsonFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -74,5 +75,8 @@ public class AdminInfoController {
             treeNode.setText(functions.getName());
             nodes.add(treeNode);
         }
+        // 调用自定义工具类中JsonFactory的buildTree()方法为nodes列表中的各个TreeNode元素中的children属性赋值（该节点包含的子节点）
+        List<TreeNode> treeNodes = JsonFactory.buildTree(nodes, 0);
+        return treeNodes;
     }
 }
