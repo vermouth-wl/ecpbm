@@ -1,13 +1,21 @@
 package com.ecpbm.controller;
 
 import com.ecpbm.pojo.AdminInfo;
+import com.ecpbm.pojo.Functions;
+import com.ecpbm.pojo.TreeNode;
 import com.ecpbm.service.AdminInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.SessionAttributes;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * @PACKAGE_NAME: com.ecpbm.controller
@@ -27,6 +35,7 @@ public class AdminInfoController {
 
     @Autowired
     private AdminInfoService adminInfoService;
+
     @RequestMapping(value = "/login", produces = "text/html;charset=UTF-8")
     @ResponseBody
     public String login(AdminInfo ai, ModelMap model) {
@@ -44,6 +53,26 @@ public class AdminInfoController {
             }
         } else {
             return "{\"success\": \"false\", \"message\": \"登录失败\"}";
+        }
+    }
+
+    @RequestMapping("getTree")
+    @ResponseBody
+    public List<TreeNode> getTree(@RequestParam(value = "adminid") String adminid) {
+        // 根据管理员对象，获取AdminInfo对象
+        AdminInfo adminInfo = adminInfoService.getAdminInfoAndFunctions(Integer.parseInt(adminid));
+        List<TreeNode> nodes = new ArrayList<TreeNode>();
+        // 获取关联的Functions对象
+        List<Functions> functionsList = adminInfo.getFs();
+        // 对List<Functions>类型的Functions对象进行排序
+        Collections.sort(functionsList);
+        // 将排序后的Functions集合对象转换到List<TreeNode>类型的列表nodes
+        for (Functions functions : functionsList) {
+            TreeNode treeNode = new TreeNode();
+            treeNode.setId(functions.getId());
+            treeNode.setFid(functions.getParentId());
+            treeNode.setText(functions.getName());
+            nodes.add(treeNode);
         }
     }
 }
