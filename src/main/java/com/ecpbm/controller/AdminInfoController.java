@@ -8,10 +8,8 @@ import com.ecpbm.util.JsonFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionStatus;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -78,5 +76,13 @@ public class AdminInfoController {
         // 调用自定义工具类中JsonFactory的buildTree()方法为nodes列表中的各个TreeNode元素中的children属性赋值（该节点包含的子节点）
         List<TreeNode> treeNodes = JsonFactory.buildTree(nodes, 0);
         return treeNodes;
+    }
+
+    @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    @ResponseBody
+    public String logout(SessionStatus status) {
+        // @SessionAttribute清除
+        status.setComplete();
+        return "{\"success\": \"true\", \"message\": \"注销成功\"}";
     }
 }

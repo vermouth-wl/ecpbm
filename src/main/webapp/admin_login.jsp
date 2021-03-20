@@ -20,15 +20,15 @@
 <body>
     <script type="text/javascript">
         function clearForm() {
-            $('#adminLoginForm').form('clear')
+            $('#adminLoginForm').form('clear');
         }
         function checkAdminLogin() {
-            $('adminLoginForm').form("submit", {
+            $('#adminLoginForm').form("submit", {
                 // 向控制器类AdminInfoController中的login方法发送请求
-                uri: 'admininfo/login',
+                url: 'admininfo/login',
                 success: function (result) {
                     var result = eval('(' + result + ')');
-                    if (result.seccess == 'true') {
+                    if (result.success == 'true') {
                         window.location.href = 'admin.jsp';
                         $('adminLoginDlg').dialog("close");
                     } else {
@@ -43,7 +43,7 @@
     </script>
     <div id="adminLoginDlg" class="easyui-dialog"
          style="left: 550px; top: 200px; width: 300; height: 200"
-         data-options="titleS: '后台登录', buttons: '#bb',modal:true">
+         data-options="title: '后台登录', buttons: '#bb',modal:true">
         <form id="adminLoginForm" method="post">
             <table style="margin: 20px;font-size: 13;">
                 <tr>
