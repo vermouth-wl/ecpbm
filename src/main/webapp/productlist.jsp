@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>商品列表</title>
-    <!-- 引入EasyUI的相关js和css文件 -->
+    <!-- 引入EasyUI相关js和css文件 -->
     <link href="EasyUI/themes/default/easyui.css" rel="stylesheet" type="text/css">
     <link href="EasyUI/themes/icon.css" rel="stylesheet" type="text/css">
     <link href="EasyUI/demo/demo.css" rel="stylesheet" type="text/css">
