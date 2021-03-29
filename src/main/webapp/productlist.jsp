@@ -19,7 +19,7 @@
 </head>
 <body>
     <table id="dg_productinfo" class="easyui-datagrid"></table>
-    <!-- 创建Datagrid控件的工具栏 -->
+    <!-- 创建Datagrid控件的工具栏，添加、修改、删除商品 -->
     <div id="tb_productinfo" style="padding: 2px 5px;">
         <a href="javascript:void(0)" class="easyui-linkbutton"
            iconCls="icon-add" plain="true" onclick="addProduct();">添加</a>
