@@ -81,7 +81,7 @@ public class AdminInfoController {
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
     @ResponseBody
     public String logout(SessionStatus status) {
-        // @SessionAttribute清除
+        // @SessionAttribute清除,注销
         status.setComplete();
         return "{\"success\": \"true\", \"message\": \"注销成功\"}";
     }
